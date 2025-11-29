@@ -1,0 +1,378 @@
+/* Futuristic Blue Theme */
+
+/*- Global Styles -*/
+body {
+    background-color: #f0f8ff; /* Alice Blue */
+    color: #333;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/*- Header -*/
+#header {
+    background-color: #ffffff;
+    padding: 20px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+#header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #007bff; /* Bright Blue */
+    text-decoration: none;
+}
+
+#header nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+#header nav li {
+    margin-left: 20px;
+}
+
+#header nav a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+#header nav a:hover {
+    color: #007bff;
+}
+
+/*- Hero Section -*/
+.hero {
+    position: relative;
+    padding: 100px 0;
+    text-align: center;
+    color: #333;
+    background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+.hero .inner {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.button.next {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.button.next:hover {
+    background-color: #0056b3;
+}
+
+/*- Section Styles -*/
+section {
+    padding: 60px 0;
+}
+
+section h2 {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #007bff;
+}
+
+/*- Project Styles -*/
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    perspective: 1000px;
+}
+
+.project-card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 rgba(0,123,255,0.25), 0 4px 16px rgba(0, 0, 0, 0.10);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+.project-card:hover {
+    box-shadow: 0 0 32px 4px #00c6ff99, 0 8px 32px rgba(0,123,255,0.18);
+    transform: translateY(-6px) scale(1.03);
+}
+
+
+
+.project-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.project-card-content {
+    padding: 20px;
+}
+
+.project-card-content h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.project-card-content h3 a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.project-card-content p {
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/*- Experience & Education -*/
+.experience-item, .education-item {
+    background-color: #fff;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #007bff;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 rgba(0,123,255,0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.experience-item:hover, .education-item:hover {
+    box-shadow: 0 0 32px 4px #00c6ff99, 0 8px 32px rgba(0,123,255,0.18);
+    transform: translateY(-6px) scale(1.03);
+}
+
+.experience-item h3, .education-item h3 {
+    font-size: 22px;
+    color: #007bff;
+    margin-top: 0;
+}
+
+.experience-item h4, .education-item h4 {
+    font-size: 18px;
+    font-style: italic;
+    margin-bottom: 10px;
+}
+
+/*- Awards -*/
+#awards .grid-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.award-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 rgba(0,123,255,0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.award-item:hover {
+    box-shadow: 0 0 32px 4px #00c6ff99, 0 8px 32px rgba(0,123,255,0.18);
+    transform: translateY(-6px) scale(1.03);
+}
+
+/* Skill tile style for glow */
+.skill-tile {
+    display: inline-block;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 16px 0 rgba(0,123,255,0.18), 0 4px 16px rgba(0, 0, 0, 0.08);
+    padding: 12px 22px;
+    margin: 8px 10px 8px 0;
+    font-weight: 500;
+    font-size: 1.05rem;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.skill-tile:hover {
+    box-shadow: 0 0 32px 4px #00c6ff99, 0 8px 32px rgba(0,123,255,0.18);
+    transform: translateY(-4px) scale(1.04);
+}
+
+/*- Contact Section -*/
+
+.contact-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        background: linear-gradient(135deg, #e0f7fa 0%, #b3e5fc 100%);
+        border-radius: 18px;
+        box-shadow: 0 8px 32px rgba(0, 123, 255, 0.08);
+        padding: 32px 24px;
+        position: relative;
+        overflow: hidden;
+        animation: fadeInContact 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+@keyframes fadeInContact {
+    from { opacity: 0; transform: translateY(40px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.contact-form, .contact-info {
+    flex: 1;
+    min-width: 300px;
+    z-index: 1;
+}
+
+.contact-form .fields {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form .field input, .contact-form .field textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1.5px solid #b3e5fc;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.85);
+    transition: border-color 0.3s, box-shadow 0.3s;
+    font-size: 1rem;
+}
+.contact-form .field input:focus, .contact-form .field textarea:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 2px #b3e5fc;
+    outline: none;
+}
+
+.contact-form .actions {
+    padding: 0;
+    list-style: none;
+    display: flex;
+    gap: 16px;
+}
+.contact-form .actions input[type="submit"],
+.contact-form .actions input[type="reset"] {
+    background: linear-gradient(90deg, #007bff 60%, #00c6ff 100%);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 28px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.08);
+    transition: background 0.3s, transform 0.2s;
+}
+.contact-form .actions input[type="submit"]:hover,
+.contact-form .actions input[type="reset"]:hover {
+    background: linear-gradient(90deg, #0056b3 60%, #007bff 100%);
+    transform: translateY(-2px) scale(1.04);
+}
+
+/* Contact Method Icons */
+.contact-method {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: rgba(255,255,255,0.85);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,123,255,0.06);
+    padding: 18px 20px;
+    margin-bottom: 18px;
+    position: relative;
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+.contact-method:hover {
+    box-shadow: 0 6px 24px rgba(0,123,255,0.18);
+    transform: translateY(-4px) scale(1.03);
+}
+.contact-icon {
+    font-size: 2.2rem;
+    color: #007bff;
+    animation: iconPop 1.2s cubic-bezier(.4,0,.2,1);
+    min-width: 40px;
+    text-align: center;
+}
+@keyframes iconPop {
+  0% { transform: scale(0.5) rotate(-20deg); opacity: 0; }
+  60% { transform: scale(1.2) rotate(8deg); opacity: 1; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.contact-method h3 {
+    margin: 0 0 4px 0;
+    color: #007bff;
+    font-size: 1.2rem;
+}
+.contact-method p, .contact-method a {
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    text-decoration: none;
+}
+.contact-method a:hover {
+    text-decoration: underline;
+    color: #0056b3;
+}
+
+/*- Footer -*/
+#footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+#footer .icons {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+#footer .icons li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+#footer .icons a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 24px;
+}
+
+#footer .copyright {
+    list-style: none;
+    padding: 0;
+    font-size: 14px;
+}

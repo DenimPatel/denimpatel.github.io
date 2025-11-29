@@ -1,5 +1,5 @@
 /*
-	Forty by HTML5 UP
+	Futuristic by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
@@ -8,9 +8,7 @@
 
 	var	$window = $(window),
 		$body = $('body'),
-		$wrapper = $('#wrapper'),
-		$header = $('#header'),
-		$banner = $('#banner');
+		$header = $('#header');
 
 	// Breakpoints.
 		breakpoints({
@@ -22,92 +20,12 @@
 			xxsmall:   [null,       '360px'    ]
 		});
 
-	/**
-	 * Applies parallax scrolling to an element's background image.
-	 * @return {jQuery} jQuery object.
-	 */
-	$.fn._parallax = (browser.name == 'ie' || browser.name == 'edge' || browser.mobile) ? function() { return $(this) } : function(intensity) {
-
-		var	$window = $(window),
-			$this = $(this);
-
-		if (this.length == 0 || intensity === 0)
-			return $this;
-
-		if (this.length > 1) {
-
-			for (var i=0; i < this.length; i++)
-				$(this[i])._parallax(intensity);
-
-			return $this;
-
-		}
-
-		if (!intensity)
-			intensity = 0.25;
-
-		$this.each(function() {
-
-			var $t = $(this),
-				on, off;
-
-			on = function() {
-
-				$t.css('background-position', 'center 100%, center 100%, center 0px');
-
-				$window
-					.on('scroll._parallax', function() {
-
-						var pos = parseInt($window.scrollTop()) - parseInt($t.position().top);
-
-						$t.css('background-position', 'center ' + (pos * (-1 * intensity)) + 'px');
-
-					});
-
-			};
-
-			off = function() {
-
-				$t
-					.css('background-position', '');
-
-				$window
-					.off('scroll._parallax');
-
-			};
-
-			breakpoints.on('<=medium', off);
-			breakpoints.on('>medium', on);
-
-		});
-
-		$window
-			.off('load._parallax resize._parallax')
-			.on('load._parallax resize._parallax', function() {
-				$window.trigger('scroll');
-			});
-
-		return $(this);
-
-	};
-
 	// Play initial animations on page load.
 		$window.on('load', function() {
 			window.setTimeout(function() {
 				$body.removeClass('is-preload');
 			}, 100);
 		});
-
-	// Clear transitioning state on unload/hide.
-		$window.on('unload pagehide', function() {
-			window.setTimeout(function() {
-				$('.is-transitioning').removeClass('is-transitioning');
-			}, 250);
-		});
-
-	// Fix: Enable IE-only tweaks.
-		if (browser.name == 'ie' || browser.name == 'edge')
-			$body.addClass('is-ie');
 
 	// Scrolly.
 		$('.scrolly').scrolly({
@@ -116,76 +34,8 @@
 			}
 		});
 
-	// Tiles.
-		var $tiles = $('.tiles > article');
-
-		$tiles.each(function() {
-
-			var $this = $(this),
-				$image = $this.find('.image'), $img = $image.find('img'),
-				$link = $this.find('.link'),
-				x;
-
-			// Image.
-
-				// Set image.
-					$this.css('background-image', 'url(' + $img.attr('src') + ')');
-
-				// Set position.
-					if (x = $img.data('position'))
-						$image.css('background-position', x);
-
-				// Hide original.
-					$image.hide();
-
-			// Link.
-				if ($link.length > 0) {
-
-					$x = $link.clone()
-						.text('')
-						.addClass('primary')
-						.appendTo($this);
-
-					$link = $link.add($x);
-
-					$link.on('click', function(event) {
-
-						var href = $link.attr('href');
-
-						// Prevent default.
-							event.stopPropagation();
-							event.preventDefault();
-
-						// Target blank?
-							if ($link.attr('target') == '_blank') {
-
-								// Open in new tab.
-									window.open(href);
-
-							}
-
-						// Otherwise ...
-							else {
-
-								// Start transitioning.
-									$this.addClass('is-transitioning');
-									$wrapper.addClass('is-transitioning');
-
-								// Redirect.
-									window.setTimeout(function() {
-										location.href = href;
-									}, 500);
-
-							}
-
-					});
-
-				}
-
-		});
-
 	// Header.
-		if ($banner.length > 0
+		if ($('#banner').length > 0
 		&&	$header.hasClass('alt')) {
 
 			$window.on('resize', function() {
@@ -194,7 +44,7 @@
 
 			$window.on('load', function() {
 
-				$banner.scrollex({
+				$('#banner').scrollex({
 					bottom:		$header.height() + 10,
 					terminate:	function() { $header.removeClass('alt'); },
 					enter:		function() { $header.addClass('alt'); },
@@ -209,127 +59,113 @@
 
 		}
 
-	// Banner.
-		$banner.each(function() {
-
-			var $this = $(this),
-				$image = $this.find('.image'), $img = $image.find('img');
-
-			// Parallax.
-				$this._parallax(0.275);
-
-			// Image.
-				if ($image.length > 0) {
-
-					// Set image.
-						$this.css('background-image', 'url(' + $img.attr('src') + ')');
-
-					// Hide original.
-						$image.hide();
-
+	// Particles.js
+	if ($('#particles-js').length > 0) {
+		particlesJS('particles-js', {
+			"particles": {
+				"number": {
+					"value": 80,
+					"density": {
+						"enable": true,
+						"value_area": 800
+					}
+				},
+				"color": {
+					"value": "#007bff"
+				},
+				"shape": {
+					"type": "circle",
+					"stroke": {
+						"width": 0,
+						"color": "#000000"
+					},
+					"polygon": {
+						"nb_sides": 5
+					}
+				},
+				"opacity": {
+					"value": 0.5,
+					"random": false,
+					"anim": {
+						"enable": false,
+						"speed": 1,
+						"opacity_min": 0.1,
+						"sync": false
+					}
+				},
+				"size": {
+					"value": 3,
+					"random": true,
+					"anim": {
+						"enable": false,
+						"speed": 40,
+						"size_min": 0.1,
+						"sync": false
+					}
+				},
+				"line_linked": {
+					"enable": true,
+					"distance": 150,
+					"color": "#007bff",
+					"opacity": 0.4,
+					"width": 1
+				},
+				"move": {
+					"enable": true,
+					"speed": 6,
+					"direction": "none",
+					"random": false,
+					"straight": false,
+					"out_mode": "out",
+					"bounce": false,
+					"attract": {
+						"enable": false,
+						"rotateX": 600,
+						"rotateY": 1200
+					}
 				}
-
+			},
+			"interactivity": {
+				"detect_on": "canvas",
+				"events": {
+					"onhover": {
+						"enable": true,
+						"mode": "repulse"
+					},
+					"onclick": {
+						"enable": true,
+						"mode": "push"
+					},
+					"resize": true
+				},
+				"modes": {
+					"grab": {
+						"distance": 400,
+						"line_linked": {
+							"opacity": 1
+						}
+					},
+					"bubble": {
+						"distance": 400,
+						"size": 40,
+						"duration": 2,
+						"opacity": 8,
+						"speed": 3
+					},
+					"repulse": {
+						"distance": 200,
+						"duration": 0.4
+					},
+					"push": {
+						"particles_nb": 4
+					},
+					"remove": {
+						"particles_nb": 2
+					}
+				}
+			},
+			"retina_detect": true
 		});
-
-	// Menu.
-		var $menu = $('#menu'),
-			$menuInner;
-
-		$menu.wrapInner('<div class="inner"></div>');
-		$menuInner = $menu.children('.inner');
-		$menu._locked = false;
-
-		$menu._lock = function() {
-
-			if ($menu._locked)
-				return false;
-
-			$menu._locked = true;
-
-			window.setTimeout(function() {
-				$menu._locked = false;
-			}, 350);
-
-			return true;
-
-		};
-
-		$menu._show = function() {
-
-			if ($menu._lock())
-				$body.addClass('is-menu-visible');
-
-		};
-
-		$menu._hide = function() {
-
-			if ($menu._lock())
-				$body.removeClass('is-menu-visible');
-
-		};
-
-		$menu._toggle = function() {
-
-			if ($menu._lock())
-				$body.toggleClass('is-menu-visible');
-
-		};
-
-		$menuInner
-			.on('click', function(event) {
-				event.stopPropagation();
-			})
-			.on('click', 'a', function(event) {
-
-				var href = $(this).attr('href');
-
-				event.preventDefault();
-				event.stopPropagation();
-
-				// Hide.
-					$menu._hide();
-
-				// Redirect.
-					window.setTimeout(function() {
-						window.location.href = href;
-					}, 250);
-
-			});
-
-		$menu
-			.appendTo($body)
-			.on('click', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				$body.removeClass('is-menu-visible');
-
-			})
-			.append('<a class="close" href="#menu">Close</a>');
-
-		$body
-			.on('click', 'a[href="#menu"]', function(event) {
-
-				event.stopPropagation();
-				event.preventDefault();
-
-				// Toggle.
-					$menu._toggle();
-
-			})
-			.on('click', function(event) {
-
-				// Hide.
-					$menu._hide();
-
-			})
-			.on('keydown', function(event) {
-
-				// Hide on escape.
-					if (event.keyCode == 27)
-						$menu._hide();
-
-			});
+	}
 
 })(jQuery);
