@@ -25,3 +25,9 @@ if (prefersReduced) {
 } else {
   revealEls.forEach(el => el.classList.add('is-visible'));
 }
+
+// keep the hero project count in sync with the cards on the page
+const projectCount = document.getElementById('projectCount');
+if (projectCount) {
+  projectCount.textContent = document.querySelectorAll('.proj-card, .app-card').length;
+}
