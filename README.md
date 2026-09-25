@@ -13,15 +13,15 @@ Source for my personal portfolio site, served via GitHub Pages:
 │   ├── css/
 │   │   └── style.css     # All site styling
 │   ├── js/
-│   │   └── script.js     # Mobile nav, footer year, scroll-reveal animation
-│   └── images/           # Images used on the site (add new assets here)
+│   │   └── script.js     # Mobile nav, footer year, project count, scroll-reveal
+│   └── favicon.svg
 └── README.md
 ```
 
 Content lives in `index.html` as a set of `<section>` blocks (About, Experience,
-Education, Skills, Projects, Awards, Contact). Adding a new project, role, or
-award means editing the markup in the matching section — no build step
-required.
+Education, Skills, Projects, Live Demos, Awards, Contact). Adding a new project, role, or
+award means editing the markup in the matching section. There is no build
+step, and the hero's project count updates itself from the cards.
 
 ## Local development
 
@@ -36,4 +36,4 @@ Then open http://localhost:8000 in a browser.
 ## Deployment
 
 The site is published automatically by GitHub Pages from this repository's
-default branch — pushing to it deploys the change.
+default branch, so pushing to it deploys the change.
